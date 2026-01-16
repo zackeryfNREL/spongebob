@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  spongebob-quotes:
+    build: .
+    container_name: spongebob-quotes-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped

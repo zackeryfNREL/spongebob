@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpongeBob Quotes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍍 SpongeBob SquarePants Quotes 🧽</h1>
+            <p class="subtitle">Get your daily dose of Bikini Bottom wisdom!</p>
+        </header>
+        
+        <main>
+            <div class="quote-container">
+                <div class="quote-bubble">
+                    <p id="quote" class="quote-text">Click the button to get a SpongeBob quote!</p>
+                    <p id="character" class="character-name"></p>
+                </div>
+            </div>
+            
+            <button id="newQuoteBtn" class="btn">
+                <span>Get New Quote</span>
+            </button>
+            
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Loading quote...</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made with ❤️ for SpongeBob fans everywhere</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
