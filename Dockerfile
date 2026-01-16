@@ -23,7 +23,9 @@ RUN mkdir -p /var/cache/nginx/client_temp \
              /var/run \
              /var/log/nginx && \
     chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx && \
-    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx
+    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx && \
+    touch /var/run/nginx.pid && \
+    chown nginx:nginx /var/run/nginx.pid
 
 # Create non-root user for nginx (already exists in nginx:alpine)
 # Switch to nginx user
