@@ -5,19 +5,10 @@ services:
     ports:
       - "8080:8080"
     restart: on-failure:3
-    read_only: true
     security_opt:
       - no-new-privileges:true
     cap_drop:
       - ALL
-    cap_add:
-      - CHOWN
-      - SETUID
-      - SETGID
-    tmpfs:
-      - /var/cache/nginx:uid=101,gid=101
-      - /var/run:uid=101,gid=101
-      - /tmp:uid=101,gid=101
     deploy:
       resources:
         limits:

@@ -1,5 +1,5 @@
 # Use nginx alpine image for lightweight container
-FROM nginx:alpine
+FROM docker.io/library/nginx:alpine
 
 # Copy custom nginx configuration with security headers
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -13,6 +13,17 @@ COPY script.js /usr/share/nginx/html/
 RUN chmod 644 /usr/share/nginx/html/index.html \
     /usr/share/nginx/html/styles.css \
     /usr/share/nginx/html/script.js
+
+# Create necessary directories and set permissions for nginx user
+RUN mkdir -p /var/cache/nginx/client_temp \
+             /var/cache/nginx/proxy_temp \
+             /var/cache/nginx/fastcgi_temp \
+             /var/cache/nginx/uwsgi_temp \
+             /var/cache/nginx/scgi_temp \
+             /var/run \
+             /var/log/nginx && \
+    chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx && \
+    chmod -R 755 /var/cache/nginx /var/run /var/log/nginx
 
 # Create non-root user for nginx (already exists in nginx:alpine)
 # Switch to nginx user
