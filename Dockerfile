@@ -10,7 +10,9 @@ COPY styles.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 
 # Fix file permissions so nginx can read them
-RUN chmod 644 /usr/share/nginx/html/index.html \
+RUN apk update && \
+    apk upgrade && \
+    chmod 644 /usr/share/nginx/html/index.html \
     /usr/share/nginx/html/styles.css \
     /usr/share/nginx/html/script.js
 
